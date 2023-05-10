@@ -1,9 +1,26 @@
-[![Build Status](https://travis-ci.org/kazeburo/WWW-Form-UrlEncoded-XS.svg?branch=master)](https://travis-ci.org/kazeburo/WWW-Form-UrlEncoded-XS)
-# NAME
+package WWW::Form::UrlEncoded::XS;
+
+use 5.008001;
+use strict;
+use warnings;
+use base qw/Exporter/;
+
+our $VERSION = "0.28";
+our @EXPORT_OK = qw/parse_urlencoded parse_urlencoded_arrayref build_urlencoded build_urlencoded_utf8/;
+
+use XSLoader;
+XSLoader::load(__PACKAGE__, $VERSION);
+
+1;
+__END__
+
+=encoding utf-8
+
+=head1 NAME
 
 WWW::Form::UrlEncoded::XS - XS implementation of parser and builder for application/x-www-form-urlencoded
 
-# SYNOPSIS
+=head1 SYNOPSIS
 
     use WWW::Form::UrlEncoded::XS qw/parse_urlencoded build_urlencoded/;
     
@@ -14,18 +31,22 @@ WWW::Form::UrlEncoded::XS - XS implementation of parser and builder for applicat
     my $query_string = build_urlencoded('foo','bar','baz','param');
     # "foo=bar&baz=param";
 
-# DESCRIPTION
+
+=head1 DESCRIPTION
 
 WWW::Form::UrlEncoded::XS provides application/x-www-form-urlencoded parser and builder 
-that is implemented by XS. see [WWW::Form::UrlEncoded](https://metacpan.org/pod/WWW%3A%3AForm%3A%3AUrlEncoded)'s document.
+that is implemented by XS. see L<WWW::Form::UrlEncoded>'s document.
 
-# LICENSE
+=head1 LICENSE
 
 Copyright (C) Masahiro Nagano.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-# AUTHOR
+=head1 AUTHOR
 
-Masahiro Nagano <kazeburo@gmail.com>
+Masahiro Nagano E<lt>kazeburo@gmail.comE<gt>
+
+=cut
+
